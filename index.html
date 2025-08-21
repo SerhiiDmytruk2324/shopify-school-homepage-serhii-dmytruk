@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Stellar Soft Test Page</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+    <nav class="nav container">
+        <a href="#"><img src="assets/icons/logo.svg" alt="Logo" class="logo"></a>
+        <ul class="nav__links">
+            <li><a href="#">New & Featured</a></li>
+            <li><a href="#">Men</a></li>
+            <li><a href="#">Women</a></li>
+            <li><a href="#">Kids</a></li>
+        </ul>
+        <a href="#cart" aria-label="Cart">
+            <img src="assets/icons/cart.svg" alt="Cart">
+        </a>
+    </nav>
+</header>
+
+<!-- Hero Section -->
+<section class="hero swiper">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide hero__slide" style="background-image:url('assets/images/hero1.jpg');">
+            <div class="hero__content">
+                <h1>Hero Title</h1>
+                <p>Subtitle goes here</p>
+                <a href="#" class="btn">Shop the Collection</a>
+            </div>
+        </div>
+        <div class="swiper-slide hero__slide" style="background-image:url('assets/images/hero2.jpg');">
+            <div class="hero__content">
+                <h1>Another Title</h1>
+                <p>Second subtitle</p>
+                <a href="#" class="btn">Shop Now</a>
+            </div>
+        </div>
+    </div>
+    <div class="swiper-pagination"></div>
+</section>
+
+<!-- Product Collection -->
+<section class="collection swiper container">
+    <h2>Featured Collection</h2>
+    <div class="swiper-wrapper">
+        <article class="swiper-slide product-card">
+            <img src="assets/images/product1.jpg" alt="Sneakers">
+            <h3>Cool Sneakers</h3>
+            <p>$120</p>
+        </article>
+        <article class="swiper-slide product-card">
+            <img src="assets/images/product2.jpg" alt="Hoodie">
+            <h3>Comfy Hoodie</h3>
+            <p>$80</p>
+        </article>
+    </div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+</section>
+
+<!-- FAQ -->
+<section class="faq container">
+    <h2>Frequently Asked Questions</h2>
+    <details>
+        <summary>How can I order?</summary>
+        <p>Place an order via our website in just a few clicks.</p>
+    </details>
+    <details>
+        <summary>Can I return a product?</summary>
+        <p>Yes, within 30 days of purchase.</p>
+    </details>
+</section>
+
+<!-- Spotlight -->
+<section class="spotlight container">
+    <div class="spotlight__thumbs">
+        <img src="assets/images/product1-thumb.jpg" alt="Preview" data-main="product1.jpg" data-price="120">
+        <img src="assets/images/product2-thumb.jpg" alt="Preview" data-main="product2.jpg" data-price="140">
+    </div>
+    <div class="spotlight__main">
+        <div class="badge">Highly Rated</div>
+        <img id="mainImage" src="assets/images/product1.jpg" alt="Main product">
+        <div class="options">
+            <div class="colors">
+                <button class="color active" data-img="product1.jpg" data-price="120"></button>
+                <button class="color" data-img="product2.jpg" data-price="140"></button>
+            </div>
+            <div class="sizes">
+                <button class="size active">M</button>
+                <button class="size">L</button>
+            </div>
+            <p id="price">$120</p>
+            <button class="btn">Add to Bag</button>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Form -->
+<section class="contact container">
+    <h2>Need Help?</h2>
+    <form id="helpForm">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="tel" name="number" placeholder="Number" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <textarea name="message" placeholder="Message"></textarea>
+        <button type="submit" class="btn">Submit</button>
+    </form>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer__columns container">
+        <div>
+            <h4>Resources</h4>
+            <a href="#">Link</a>
+        </div>
+        <div>
+            <h4>Help</h4>
+            <a href="#">Link</a>
+        </div>
+        <div>
+            <h4>Company</h4>
+            <a href="#">Link</a>
+        </div>
+        <div>
+            <h4>Menu</h4>
+            <a href="#">Link</a>
+        </div>
+    </div>
+    <p>© 2025 Stellar Soft</p>
+</footer>
+
+<!-- Popup -->
+<div class="popup" id="popup">
+    <button class="close" aria-label="Close">×</button>
+    <h2>Subscribe</h2>
+    <form id="popupForm">
+        <input type="email" placeholder="Enter your email" required>
+        <button type="submit" class="btn">Submit</button>
+    </form>
+</div>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
