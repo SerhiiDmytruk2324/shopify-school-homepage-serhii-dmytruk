@@ -1,10 +1,14 @@
 // Swiper init
 new Swiper('.hero', {
-  pagination: { el: '.swiper-pagination', clickable: true }
+  pagination: { el: '.swiper-pagination', clickable: true},
+  autoplay: {
+    delay: 5000,
+  },
+  loop: true
 });
 
 new Swiper('.collection', {
-  slidesPerView: 4,
+  loop: true,
   spaceBetween: 20,
   navigation: {
     nextEl: '.swiper-button-next',
@@ -25,14 +29,76 @@ document.getElementById('helpForm').addEventListener('submit', e => {
 });
 
 // Spotlight logic
-const mainImage = document.getElementById('mainImage');
-const price = document.getElementById('price');
-document.querySelectorAll('.spotlight__thumbs img, .colors button').forEach(el => {
-  el.addEventListener('click', () => {
-    mainImage.src = `assets/images/${el.dataset.main || el.dataset.img}`;
-    price.textContent = `$${el.dataset.price}`;
+// Дані: для кожного кольору є 5 фото
+const productData = {
+  black: [
+    "assets/images/color1/image1.jpg",
+    "assets/images/color1/image2.jpg",
+    "assets/images/color1/image3.jpg",
+    "assets/images/color1/image4.jpg",
+    "assets/images/color1/image5.jpg",
+  ],
+  white: [
+    "assets/images/color2/image6.jpg",
+    "assets/images/color2/image7.jpg",
+    "assets/images/color2/image8.jpg",
+    "assets/images/color2/image9.jpg",
+    "assets/images/color2/image10.jpg",
+  ],
+  red: [
+    "assets/images/color3/image11.jpg",
+    "assets/images/color3/image12.jpg",
+    "assets/images/color3/image13.jpg",
+    "assets/images/color3/image14.jpg",
+    "assets/images/color3/image15.jpg",
+  ]
+};
+
+const thumbs = document.getElementById("thumbs");
+const mainImage = document.getElementById("mainImage");
+const priceEl = document.getElementById("price");
+
+// ========== Перемикання кольору ==========
+document.querySelectorAll(".color").forEach(btn => {
+  btn.addEventListener("click", () => {
+    // оновлюємо активний колір
+    document.querySelectorAll(".color").forEach(c => c.classList.remove("active"));
+    btn.classList.add("active");
+
+    const color = btn.dataset.color;
+    const price = btn.dataset.price;
+
+    // оновлюємо ціну
+    priceEl.textContent = `$${price}`;
+
+    // показуємо нові мініатюри
+    renderThumbnails(productData[color]);
+
+    // міняємо головне фото на перше
+    mainImage.src = productData[color][0];
   });
 });
+
+// ========== Генерація мініатюр ==========
+function renderThumbnails(images) {
+  thumbs.innerHTML = "";
+  images.forEach((src, idx) => {
+    const img = document.createElement("img");
+    img.src = src;
+    img.alt = "Preview";
+    if (idx === 0) img.classList.add("active");
+    img.addEventListener("click", () => {
+      document.querySelectorAll("#thumbs img").forEach(t => t.classList.remove("active"));
+      img.classList.add("active");
+      mainImage.src = src;
+    });
+    thumbs.appendChild(img);
+  });
+}
+
+// Початковий рендер
+renderThumbnails(productData.black);
+
 
 // Popup logic
 window.addEventListener('load', () => {
