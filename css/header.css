@@ -1,13 +1,4 @@
-header {
-    padding: 16px 0;
-}
 .header .nav.container {
-    display: flex;
-    justify-content: space-between;
-    padding: 0 60px;
-}
-
-.nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -16,7 +7,132 @@ header {
 .nav__links {
     list-style: none;
     display: flex;
+}
+
+/* ---- Burger Menu Styles ---- */
+.burger-menu {
+    display: none; /* Hidden by default on desktop */
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.burger-line {
+    display: block;
+    width: 20px;
+    height: 1px;
+    background-color: var(--dark);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.burger-line::before,
+.burger-line::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 1px;
+    background-color: var(--dark);
+    transition: transform 0.3s ease-in-out;
+}
+
+.burger-line::before {
+    transform: translateY(-8px);
+    left: 0;
+}
+
+.burger-line::after {
+    transform: translateY(8px);
+    left: 0;
+}
+
+/* Burger menu 'open' state */
+.burger-menu.open .burger-line {
+    background-color: transparent;
+}
+
+.burger-menu.open .burger-line::before {
+    transform: rotate(45deg);
+}
+
+.burger-menu.open .burger-line::after {
+    transform: rotate(-45deg);
+}
+
+/* ---- Mobile Menu Wrapper ---- */
+.nav__menu-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0; /* Positioned to the left side of the screen */
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(-100%); /* Pushed off-screen to the left */
+    transition: transform 0.3s ease-in-out;
+    z-index: 95;
+    backdrop-filter: blur(10px);
+}
+
+/* This is the class that gets toggled by JavaScript to show the menu */
+.nav__menu-wrapper.menu-active {
+    transform: translateX(0); /* Slides the menu back into view */
+}
+
+/* Style for the mobile nav links */
+.nav__links {
+    flex-direction: column;
+    text-align: center;
     gap: 32px;
-    padding: 0;
-    margin: 0;
+}
+
+@media (max-width: 767px) {
+    .header .nav.container {
+        padding: 16px;
+    }
+
+    .logo-link {
+        display: none;
+    }
+
+    .burger-menu {
+        display: block;
+    }
+}
+
+@media (min-width: 768px) {
+    header {
+        padding: 16px 0;
+    }
+
+    .header .nav.container {
+        padding: 0 60px;
+    }
+
+    .burger-menu {
+        display: none;
+    }
+
+    .nav__menu-wrapper {
+        position: static;
+        width: auto;
+        height: auto;
+        background-color: transparent;
+        transform: translateX(0);
+        display: flex;
+        align-items: center;
+    }
+
+    .nav__links {
+        flex-direction: row;
+        gap: 1.5rem;
+    }
 }

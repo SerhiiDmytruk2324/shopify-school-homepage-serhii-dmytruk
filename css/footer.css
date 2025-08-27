@@ -1,0 +1,127 @@
+.footer-nav {
+    display: flex;
+    flex-direction: column;
+    column-gap: 24px;
+}
+
+.footer-nav-title {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.footer-nav-title .title {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.footer-column .icon {
+    transition: transform 0.3s ease;
+    transform: rotate(0deg);
+}
+
+/* The `is-expanded` class will be added/removed by JavaScript */
+.footer-nav-title[aria-expanded="true"] .icon {
+    transform: rotate(180deg);
+}
+
+.footer-nav-list {
+    display: none;
+
+}
+
+.footer-nav-list li {
+    margin-bottom: 12px;
+}
+
+.footer-link {
+    color: var(--text-gray);
+    cursor: default;
+}
+
+.footer-link:hover {
+    color: var(--dark);
+}
+
+.footer-copyright {
+    margin-top: 40px;
+}
+
+.copyright-content {
+    font-size: 0.9rem;
+    color: var(--text-gray);
+    margin-bottom: 1rem;
+}
+
+.footer-legal {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+@media (max-width: 767px) {
+    .footer-menu {
+        border-top: 1px solid var(--light-gray);
+    }
+    .footer-menu:last-child {
+        border-bottom: 1px solid var(--light-gray);
+    }
+    .footer-nav-list.is-active {
+        display: block;
+    }
+    .copyright-content {
+        text-align: start;
+    }
+    .footer-legal {
+        flex-direction: column;
+        align-items: start;
+        padding-bottom: 20px;
+    }
+}
+@media (min-width: 768px) {
+    .footer-nav {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .footer-menu {
+        flex: 1;
+    }
+
+    .footer-nav-title {
+        pointer-events: none; /* Disable click events on desktop */
+        padding: 0;
+        font-size: 1rem;
+    }
+
+    .footer-nav-title .icon {
+        display: none; /* Hide the icon on desktop */
+    }
+
+    .footer-nav-list {
+        display: block; /* Always show list on desktop */
+        margin-top: 1rem;
+    }
+
+    .footer-copyright {
+        display: flex;
+        align-items: center;
+        margin-top: 60px;
+        column-gap: 20px;
+    }
+
+    .copyright-content {
+        margin-bottom: 0;
+    }
+}

@@ -1,0 +1,116 @@
+.popup-banner {
+    position: fixed;
+    inset: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, .8);
+    z-index: 999;
+}
+
+.popup-banner.show {
+    display: flex;
+}
+
+#popup-banner-title {
+    font-size: 30px;
+    line-height: 1;
+    font-weight: 700;
+}
+
+.popup-banner-container {
+    background-color: var(--white);
+    max-width: 872px;
+    width: 90%;
+    display: flex;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    position: relative;
+    animation: fadeInUp 0.3s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.popup-banner-btn-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+}
+
+.popup-banner-btn-close img {
+    display: block;
+    pointer-events: none;
+}
+
+.popup-banner-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 60px 24px;
+}
+
+
+#popup-banner-description {
+    margin-top: 16px;
+    font-size: 16px;
+}
+
+.popup-banner-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.form-group input {
+    padding: 10px 12px;
+    border: 1px solid var(--light-gray);
+}
+
+.popup-banner-img {
+    display: none;
+}
+
+.popup-banner-img img {
+    width: auto;
+    height: 100%;
+    max-width: 352px;
+    object-fit: cover;
+    display: block;
+}
+
+#popup-banner-email:focus-visible {
+    outline: none;
+}
+
+@media (min-width: 768px) {
+    .popup-banner-content {
+        padding: 60px;
+    }
+    .popup-banner-img {
+        display: block;
+    }
+    #popup-banner-title {
+        font-size: 48px;
+    }
+}
